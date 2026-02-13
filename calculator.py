@@ -6,7 +6,9 @@ st.title("Calculator App")
 st.write("This app connects to a FastAPI calculator service.")
 
 # Define the API base URL
-api_url = "https://genaiengineering-cohort1-1-3vu1.onrender.com"
+#api_url = "http://0.0.0.0:9321"
+api_url = "http://127.0.0.1:9321" #same as localhost:9321
+
 
 # Initialize session state to store the calculator display and current operation
 if 'display' not in st.session_state:
@@ -23,7 +25,9 @@ if 'api_response' not in st.session_state:
     st.session_state.api_response = None
 
 # Display the calculator screen
-st.text_input("Calculator Display", value=st.session_state.display, key="display_field", disabled=True)
+#st.text_input("Calculator Display", value=st.session_state.display, key="display_field", disabled=True)
+st.text_input("Calculator Display", key="display", disabled=True)
+
 
 # Function to handle number button clicks
 def number_click(number):
@@ -137,6 +141,5 @@ st.markdown("""
 3. Click "=" to calculate the result by calling the API
 4. Click "C" to clear the calculator
 """)
-
 
 # Run with: streamlit run streamlit_calculator.py
